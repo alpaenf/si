@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('title', 'Beranda - Diskominfo Kab. Pemalang')
 
@@ -54,159 +54,80 @@
                         </div>
                     </div>
 
-                    <div class="space-y-6">
-                        <!-- BERITA UTAMA -->
-                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                            <div class="h-56 bg-gradient-to-br from-primary to-blue-700 flex items-center justify-center">
-                                <div class="text-white text-center font-semibold text-xl px-4">
-                                    Dialog Radio BPS Pemalang
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                                    Berita Utama
-                                </span>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                                    Dialog Radio, Kepala BPS Pemalang Promosikan Sejumlah Layanannya
-                                </h3>
-                                <div class="text-xs text-gray-500 mb-3">
-                                    26 Maret 2025 • Kolaborasi Diskominfo &amp; BPS
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                                    Dalam dialog interaktif di radio daerah, Kepala BPS Kabupaten Pemalang memaparkan
-                                    layanan statistik yang dapat dimanfaatkan masyarakat, pelaku usaha, maupun perangkat
-                                    desa untuk pengambilan keputusan berbasis data.
-                                </p>
-                                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                                    <span class="text-xs text-gray-500">3 menit waktu baca</span>
-                                    <a href="#" class="text-primary hover:text-blue-700 font-semibold text-sm transition">
-                                        Baca selengkapnya →
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                    @if($beritas->count() > 0)
+                        <div class="space-y-6">
+                            @foreach($beritas as $index => $berita)
+                                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                                    <!-- Image -->
+                                    @if($berita->gambar)
+                                        <div class="h-56 overflow-hidden">
+                                            <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}" class="w-full h-full object-cover">
+                                        </div>
+                                    @else
+                                        <div class="h-56 bg-gradient-to-br from-primary to-blue-700 flex items-center justify-center">
+                                            <div class="text-white text-center font-semibold text-xl px-4">
+                                                {{ $berita->judul }}
+                                            </div>
+                                        </div>
+                                    @endif
 
-                        <!-- BERITA LAINNYA -->
-                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                            <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
-                                <div class="text-white text-center font-semibold text-lg px-4">
-                                    Diskominfo Gelar Apel Pagi
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <span class="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                                    Kegiatan
-                                </span>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                                    Diskominfo Gelar Apel Pagi dan Penandatanganan Pakta Integritas
-                                </h3>
-                                <div class="text-xs text-gray-500 mb-3">
-                                    17 November 2025 • Kegiatan Rutin
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                                    Dalam rangka mewujudkan tata kelola pemerintahan yang bersih dan bebas korupsi, 
-                                    Dinas Komunikasi dan Informatika menggelar apel pagi diikuti penandatanganan pakta 
-                                    integritas oleh seluruh pegawai.
-                                </p>
-                                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                                    <span class="text-xs text-gray-500">2 menit waktu baca</span>
-                                    <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition">
-                                        Baca selengkapnya →
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                                    <!-- Content -->
+                                    <div class="p-6">
+                                        <!-- Tags -->
+                                        @if(is_array($berita->tags) && count($berita->tags) > 0)
+                                            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
+                                                {{ ucfirst($berita->tags[0]) }}
+                                            </span>
+                                        @endif
 
-                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                            <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
-                                <div class="text-white text-center font-semibold text-lg px-4">
-                                    Peta Rencana SPBE 2025
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <span class="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                                    SPBE
-                                </span>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                                    Diskominfo Gelar Desk Peta Rencana SPBE 2025
-                                </h3>
-                                <div class="text-xs text-gray-500 mb-3">
-                                    30 Oktober 2025 • Program SPBE
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                                    Kegiatan desk peta rencana SPBE 2025 dilaksanakan sebagai upaya peningkatan kualitas 
-                                    Sistem Pemerintahan Berbasis Elektronik di Kabupaten Pemalang dengan melibatkan 
-                                    seluruh OPD.
-                                </p>
-                                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                                    <span class="text-xs text-gray-500">3 menit waktu baca</span>
-                                    <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold text-sm transition">
-                                        Baca selengkapnya →
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                                        <!-- Title -->
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
+                                            {{ $berita->judul }}
+                                        </h3>
 
-                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                            <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
-                                <div class="text-white text-center font-semibold text-lg px-4">
-                                    Penilaian EPSS Mandiri
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <span class="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                                    Evaluasi
-                                </span>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                                    Penilaian Visitasi EPSS Mandiri Diskominfo
-                                </h3>
-                                <div class="text-xs text-gray-500 mb-3">
-                                    24 Oktober 2025 • Kinerja Dinas
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                                    Tim penilai melakukan visitasi untuk mengevaluasi implementasi EPSS (Evaluasi Pemerintahan 
-                                    Dalam Pelaksanaan Sistem Pemerintahan) di lingkungan Dinas Komunikasi dan Informatika 
-                                    Kabupaten Pemalang.
-                                </p>
-                                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                                    <span class="text-xs text-gray-500">2 menit waktu baca</span>
-                                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold text-sm transition">
-                                        Baca selengkapnya →
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                                        <!-- Meta -->
+                                        <div class="text-xs text-gray-500 mb-3">
+                                            {{ $berita->tanggal->format('d F Y') }} • {{ $berita->created_at->diffForHumans() }}
+                                        </div>
 
-                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                            <div class="h-48 bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center">
-                                <div class="text-white text-center font-semibold text-lg px-4">
-                                    Sosialisasi Literasi Digital
-                                </div>
+                                        <!-- Excerpt -->
+                                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                            {{ Str::limit(strip_tags($berita->deskripsi), 200) }}
+                                        </p>
+
+                                        <!-- Read More -->
+                                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                                            <span class="text-xs text-gray-500">{{ ceil(str_word_count(strip_tags($berita->deskripsi)) / 200) }} menit waktu baca</span>
+                                            <a href="{{ route('berita.detail', $berita->id) }}" class="text-primary hover:text-blue-700 font-semibold text-sm transition">
+                                                Baca selengkapnya →
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            @endforeach
+
+                            <!-- Button Lihat Semua Berita -->
+                            <div class="text-center pt-4">
+                                <a href="{{ route('berita') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-blue-700 text-white rounded-xl transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold text-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                                    </svg>
+                                    Lihat Semua Berita
+                                </a>
                             </div>
-                            <div class="p-6">
-                                <span class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                                    Program
-                                </span>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                                    Sosialisasi Literasi Digital untuk Masyarakat Desa
-                                </h3>
-                                <div class="text-xs text-gray-500 mb-3">
-                                    15 November 2025 • Program Unggulan
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                                    Diskominfo menggelar program sosialisasi literasi digital yang menyasar 12 kecamatan di 
-                                    Kabupaten Pemalang untuk meningkatkan kemampuan masyarakat dalam memanfaatkan teknologi 
-                                    informasi secara bijak dan produktif.
-                                </p>
-                                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                                    <span class="text-xs text-gray-500">4 menit waktu baca</span>
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm transition">
-                                        Baca selengkapnya →
-                                    </a>
-                                </div>
+                        </div>
+                    @else
+                        <!-- Empty State -->
+                        <div class="bg-white rounded-2xl shadow-lg p-12 text-center">
+                            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                                </svg>
                             </div>
-                        </article>
-                    </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Belum Ada Berita</h3>
+                            <p class="text-gray-600">Berita akan ditampilkan di sini setelah dipublikasikan</p>
+                        </div>
+                    @endif
                 </div>
 
             </div>
