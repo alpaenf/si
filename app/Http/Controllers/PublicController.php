@@ -15,10 +15,9 @@ class PublicController extends Controller
 {
     public function home()
     {
-        // Ambil 2 berita terbaru yang sudah dipublikasikan
+        // Ambil semua berita terbaru yang sudah dipublikasikan
         $beritas = Berita::where('status', 'published')
                         ->latest()
-                        ->take(2)
                         ->get();
         
         // Ambil sliders aktif
