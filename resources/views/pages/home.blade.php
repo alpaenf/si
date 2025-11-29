@@ -10,39 +10,131 @@
             <!-- LEFT SECTION (2 COLUMNS) -->
             <div class="lg:col-span-2 space-y-6">
 
-                <!-- HERO CARD -->
-                <article class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 card-hover">
-    <div class="relative h-80 bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center overflow-hidden">
+                <!-- HERO SLIDER -->
+                @if($sliders->count() > 0)
+                    <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden" id="heroSlider">
+                        <!-- Slider Container -->
+                        <div class="relative h-96 bg-gradient-to-br from-blue-600 to-blue-900">
+                            @foreach($sliders as $index => $slider)
+                                <div class="slider-item absolute inset-0 transition-opacity duration-700 {{ $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}">
+                                    <img src="{{ Storage::url($slider->gambar) }}" 
+                                         alt="{{ $slider->judul }}"
+                                         class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                        <h2 class="text-3xl font-bold mb-3">{{ $slider->judul }}</h2>
+                                        @if($slider->deskripsi)
+                                            <p class="text-lg text-gray-200 mb-4">{{ $slider->deskripsi }}</p>
+                                        @endif
+                                        @if($slider->link)
+                                            <a href="{{ $slider->link }}" 
+                                               target="_blank"
+                                               class="inline-flex items-center gap-2 bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg transition-colors font-medium">
+                                                <span>Selengkapnya</span>
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                                </svg>
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
 
-        <!-- Gambar Struktur dengan Zoom Hover -->
-        <img src="{{ asset('struktur.jpg') }}" alt="Struktur Organisasi Diskominfo Pemalang"
-     class="absolute inset-0 w-full h-full object-cover z-0">
-        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-xs font-semibold">
-            STRUKTUR ORGANISASI
-        </span>
-    </div>
+                        <!-- Slider Controls -->
+                        @if($sliders->count() > 1)
+                            <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
 
-    <div class="p-6 text-center">
-        <div class="flex gap-4 text-xs text-gray-500 mb-2 justify-center">
-            <span>20 Agustus 2025</span>
-            <span>•</span>
-            <span>Bidang Sekretariat</span>
-        </div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">
-            Struktur Organisasi Diskominfo Kabupaten Pemalang Tahun 2024
-        </h2>
-        <p class="text-gray-600 mb-4 leading-relaxed">
-            Susunan organisasi, tugas, dan fungsi Dinas Komunikasi dan Informatika Kabupaten Pemalang
-            sebagai acuan penyelenggaraan layanan informasi dan teknologi pemerintahan daerah.
-        </p>
-        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-            <span class="text-xs text-gray-500">Terakhir diperbarui: 18 November 2025</span>
-            <a href="#" class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-5 py-2 rounded-full text-sm font-medium transition">
-                Lihat struktur lengkap →
-            </a>
-        </div>
-    </div>
-</article>
+                            <!-- Slider Indicators -->
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                                @foreach($sliders as $index => $slider)
+                                    <button onclick="goToSlide({{ $index }})" 
+                                            class="indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition {{ $index === 0 ? 'bg-white' : '' }}">
+                                    </button>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+
+                    <script>
+                        let currentSlide = 0;
+                        const slides = document.querySelectorAll('.slider-item');
+                        const indicators = document.querySelectorAll('.indicator');
+                        const totalSlides = slides.length;
+
+                        function showSlide(index) {
+                            slides.forEach((slide, i) => {
+                                if (i === index) {
+                                    slide.classList.remove('opacity-0', 'z-0');
+                                    slide.classList.add('opacity-100', 'z-10');
+                                } else {
+                                    slide.classList.remove('opacity-100', 'z-10');
+                                    slide.classList.add('opacity-0', 'z-0');
+                                }
+                            });
+
+                            indicators.forEach((indicator, i) => {
+                                if (i === index) {
+                                    indicator.classList.add('bg-white');
+                                    indicator.classList.remove('bg-white/50');
+                                } else {
+                                    indicator.classList.remove('bg-white');
+                                    indicator.classList.add('bg-white/50');
+                                }
+                            });
+                        }
+
+                        function nextSlide() {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                            showSlide(currentSlide);
+                        }
+
+                        function prevSlide() {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                            showSlide(currentSlide);
+                        }
+
+                        function goToSlide(index) {
+                            currentSlide = index;
+                            showSlide(currentSlide);
+                        }
+
+                        // Auto slide every 5 seconds
+                        if (totalSlides > 1) {
+                            setInterval(nextSlide, 5000);
+                        }
+                    </script>
+                @else
+                    <!-- Default Hero if no sliders -->
+                    <article class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 card-hover">
+                        <div class="relative h-80 bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center overflow-hidden">
+                            <img src="{{ asset('struktur.jpg') }}" alt="Struktur Organisasi Diskominfo Pemalang"
+                                 class="absolute inset-0 w-full h-full object-cover z-0">
+                            <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-xs font-semibold">
+                                STRUKTUR ORGANISASI
+                            </span>
+                        </div>
+
+                        <div class="p-6 text-center">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                                Struktur Organisasi Diskominfo Kabupaten Pemalang
+                            </h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Susunan organisasi, tugas, dan fungsi Dinas Komunikasi dan Informatika Kabupaten Pemalang
+                                sebagai acuan penyelenggaraan layanan informasi dan teknologi pemerintahan daerah.
+                            </p>
+                        </div>
+                    </article>
+                @endif
 
 
                 <!-- BERITA SECTION -->
@@ -126,6 +218,80 @@
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Belum Ada Berita</h3>
                             <p class="text-gray-600">Berita akan ditampilkan di sini setelah dipublikasikan</p>
+                        </div>
+                    @endif
+                </div>
+
+                <!-- LAYANAN UNGGULAN SECTION -->
+                <div>
+                    <div class="flex items-end justify-between mb-5">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900">Layanan Unggulan</h2>
+                            <p class="text-sm text-gray-500 mt-1">Akses cepat ke layanan digital kami</p>
+                        </div>
+                    </div>
+
+                    @if($layanan->count() > 0)
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            @foreach($layanan as $item)
+                                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                                    @if($item->icon)
+                                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 text-white">
+                                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                                <img src="{{ Storage::url($item->icon) }}" alt="{{ $item->nama }}" class="w-8 h-8 object-contain">
+                                            </div>
+                                            <h3 class="text-xl font-bold">{{ $item->nama }}</h3>
+                                        </div>
+                                    @else
+                                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 text-white">
+                                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                                </svg>
+                                            </div>
+                                            <h3 class="text-xl font-bold">{{ $item->nama }}</h3>
+                                        </div>
+                                    @endif
+                                    
+                                    <div class="p-6">
+                                        <p class="text-gray-700 text-sm mb-4 leading-relaxed line-clamp-3">
+                                            {{ $item->deskripsi }}
+                                        </p>
+                                        
+                                        @if($item->link)
+                                            <a href="{{ $item->link }}" 
+                                               target="_blank"
+                                               class="inline-flex items-center gap-2 bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium w-full justify-center">
+                                                <span>Akses Layanan</span>
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                                </svg>
+                                            </a>
+                                        @endif
+                                    </div>
+                                </article>
+                            @endforeach
+                        </div>
+
+                        <!-- Button Lihat Semua Layanan -->
+                        <div class="text-center pt-6">
+                            <a href="{{ route('layanan') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-blue-700 text-white rounded-xl transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold text-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                Lihat Semua Layanan
+                            </a>
+                        </div>
+                    @else
+                        <!-- Empty State -->
+                        <div class="bg-white rounded-2xl shadow-lg p-12 text-center">
+                            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Belum Ada Layanan</h3>
+                            <p class="text-gray-600">Layanan akan ditampilkan di sini setelah ditambahkan oleh admin</p>
                         </div>
                     @endif
                 </div>

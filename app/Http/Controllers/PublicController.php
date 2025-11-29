@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\DokumenSakip;
+use App\Models\Faq;
+use App\Models\Galeri;
+use App\Models\Layanan;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -16,7 +21,17 @@ class PublicController extends Controller
                         ->take(2)
                         ->get();
         
-        return view('pages.home', compact('beritas'));
+        // Ambil sliders aktif
+        $sliders = Slider::aktif()->urutan()->get();
+        
+        // Ambil layanan aktif (optimized with select)
+        $layanan = Layanan::aktif()
+                        ->urutan()
+                        ->take(6)
+                        ->select('id', 'nama', 'deskripsi', 'icon', 'urutan')
+                        ->get();
+        
+        return view('pages.home', compact('beritas', 'sliders', 'layanan'));
     }
 
     public function berita(Request $request)
@@ -76,5 +91,52 @@ class PublicController extends Controller
         }
         
         return view('pages.berita-detail', compact('berita'));
+    }
+
+    public function layanan()
+    {
+        $layanans = Layanan::aktif()->urutan()->get();
+        return view('pages.layanan', compact('layanans'));
+    }
+
+    public function sakip()
+    {
+        $dokumenSakip = DokumenSakip::orderBy('tahun', 'desc')
+                                    ->orderBy('jenis', 'asc')
+                                    ->get();
+        return view('pages.sakip', compact('dokumenSakip'));
+    }
+
+    public function faq()
+    {
+        $faqs = Faq::dijawab()->aktif()->urutan()->get();
+        return view('pages.faq', compact('faqs'));
+    }
+
+    public function submitFaq(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'pertanyaan' => 'required|string|max:1000',
+        ]);
+
+        Faq::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'pertanyaan' => $request->pertanyaan,
+            'status' => 'pending',
+            'aktif' => false,
+            'urutan' => 999,
+        ]);
+
+        return redirect()->route('faq')
+            ->with('success', 'Pertanyaan Anda berhasil dikirim. Kami akan segera menjawabnya.');
+    }
+
+    public function galeri()
+    {
+        $galeris = Galeri::latest()->paginate(12);
+        return view('pages.galeri', compact('galeris'));
     }
 }

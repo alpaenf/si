@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DokumenSakipController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -14,17 +17,10 @@ Route::get('/profil', function () {
     return view('pages.profil');
 })->name('profil');
 
-Route::get('/layanan', function () {
-    return view('pages.layanan');
-})->name('layanan');
-
-Route::get('/sakip', function () {
-    return view('pages.sakip');
-})->name('sakip');
-
-Route::get('/faq', function () {
-    return view('pages.faq');
-})->name('faq');
+Route::get('/layanan', [PublicController::class, 'layanan'])->name('layanan');
+Route::get('/sakip', [PublicController::class, 'sakip'])->name('sakip');
+Route::get('/faq', [PublicController::class, 'faq'])->name('faq');
+Route::post('/faq', [PublicController::class, 'submitFaq'])->name('faq.submit');
 
 // Dashboard Admin (hanya untuk user yang sudah login)
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -40,6 +36,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/berita/{berita}/edit', [BeritaController::class, 'edit'])->name('berita.edit');
         Route::put('/berita/{berita}', [BeritaController::class, 'update'])->name('berita.update');
         Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+
+        // Dokumen SAKIP Routes
+        Route::resource('dokumen-sakip', DokumenSakipController::class)->except(['show']);
+
+        // Layanan Routes
+        Route::resource('layanan', LayananController::class)->except(['show']);
+
+        // FAQ Routes
+        Route::resource('faq', FaqController::class)->except(['show']);
     });
 });
 

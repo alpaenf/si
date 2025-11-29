@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'FAQ - Diskominfo Kab. Pemalang')
+@section('title', 'Kontak Kami - Diskominfo Kab. Pemalang')
 
 @section('content')
 
@@ -8,314 +8,301 @@
     <section class="bg-gradient-to-br from-primary to-blue-800 text-white py-16">
         <div class="max-w-7xl mx-auto px-4">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hubungi Kami</h1>
                 <p class="text-lg text-blue-100 leading-relaxed">
-                    Temukan jawaban atas pertanyaan yang sering diajukan seputar layanan 
-                    Dinas Komunikasi dan Informatika Kabupaten Pemalang
+                    Silakan hubungi kami melalui informasi kontak di bawah ini atau kirimkan pesan kepada kami.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- MAIN CONTENT -->
-    <main class="max-w-5xl mx-auto px-4 py-12">
-        
-        <!-- CATEGORY TABS -->
-        <div class="flex flex-wrap gap-3 mb-8 justify-center">
-            <button class="px-6 py-2 bg-primary text-white rounded-full font-medium shadow-md hover:bg-blue-700 transition">
-                Semua
-            </button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium shadow-sm hover:bg-gray-50 transition">
-                Layanan Umum
-            </button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium shadow-sm hover:bg-gray-50 transition">
-                E-Government
-            </button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium shadow-sm hover:bg-gray-50 transition">
-                Pengaduan
-            </button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium shadow-sm hover:bg-gray-50 transition">
-                PPID
-            </button>
-        </div>
+    <main class="max-w-7xl mx-auto px-4 py-12">
 
-        <!-- FAQ ITEMS -->
-        <div class="space-y-4">
-
-            <!-- LAYANAN UMUM -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="bg-primary/5 px-6 py-3 border-b border-gray-200">
-                    <h2 class="text-lg font-bold text-primary">Layanan Umum</h2>
-                </div>
-                <div class="p-4 space-y-3">
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- CONTACT INFO -->
+            <div class="space-y-6">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Informasi Kontak</h2>
                     
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apa saja layanan yang disediakan Diskominfo Pemalang?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Diskominfo Pemalang menyediakan berbagai layanan meliputi:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Layanan informasi publik dan komunikasi</li>
-                                <li>Pengembangan dan pengelolaan sistem informasi pemerintahan (SPBE)</li>
-                                <li>Pengelolaan website dan media sosial pemerintah daerah</li>
-                                <li>Layanan persandian dan keamanan informasi</li>
-                                <li>Pengelolaan data dan statistik sektoral</li>
-                                <li>Fasilitasi layanan pos dan telekomunikasi</li>
-                            </ul>
+                    <div class="space-y-6">
+                        <!-- Alamat -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 mb-1">Alamat</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Jl. Pemuda No. 1, Pemalang<br>
+                                    Kabupaten Pemalang, Jawa Tengah<br>
+                                    52312
+                                </p>
+                            </div>
                         </div>
-                    </details>
 
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Bagaimana cara mengakses layanan Diskominfo?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Anda dapat mengakses layanan Diskominfo melalui beberapa cara:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Mengunjungi kantor Diskominfo di Jl. Pemuda No. 1, Pemalang</li>
-                                <li>Melalui website resmi atau portal layanan online</li>
-                                <li>Menghubungi layanan hotline di (0284) 321234</li>
-                                <li>Mengirim email ke diskominfo@pemalangkab.go.id</li>
-                                <li>Melalui media sosial resmi Diskominfo Pemalang</li>
-                            </ul>
+                        <!-- Telepon -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 mb-1">Telepon</h3>
+                                <p class="text-gray-600 text-sm">
+                                    (0284) 321234<br>
+                                    Fax: (0284) 321235
+                                </p>
+                            </div>
                         </div>
-                    </details>
 
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apa jam operasional Diskominfo?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Jam operasional layanan Diskominfo Pemalang:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Senin - Kamis: 07.30 - 16.00 WIB</li>
-                                <li>Jumat: 07.30 - 16.30 WIB</li>
-                                <li>Sabtu, Minggu, dan Hari Libur Nasional: Tutup</li>
-                                <li>Layanan online 24/7 melalui website dan email</li>
-                            </ul>
+                        <!-- Email -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 mb-1">Email</h3>
+                                <p class="text-gray-600 text-sm">
+                                    diskominfo@pemalangkab.go.id<br>
+                                    layanan@pemalangkab.go.id
+                                </p>
+                            </div>
                         </div>
-                    </details>
 
+                        <!-- Jam Operasional -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-900 mb-1">Jam Operasional</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Senin - Kamis: 07.30 - 16.00 WIB<br>
+                                    Jumat: 07.30 - 16.30 WIB<br>
+                                    Sabtu, Minggu & Libur: Tutup
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Media Sosial</h2>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" target="_blank" class="flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span class="font-medium">Facebook</span>
+                        </a>
+                        <a href="#" target="_blank" class="flex items-center gap-3 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                            <span class="font-medium">Twitter</span>
+                        </a>
+                        <a href="#" target="_blank" class="flex items-center gap-3 bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span class="font-medium">Instagram</span>
+                        </a>
+                        <a href="#" target="_blank" class="flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            <span class="font-medium">YouTube</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- E-GOVERNMENT -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="bg-primary/5 px-6 py-3 border-b border-gray-200">
-                    <h2 class="text-lg font-bold text-primary">E-Government & SPBE</h2>
-                </div>
-                <div class="p-4 space-y-3">
+            <!-- CONTACT FORM -->
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan</h2>
+                
+                <form action="#" method="POST" class="space-y-6">
+                    @csrf
                     
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apa itu SPBE?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>SPBE (Sistem Pemerintahan Berbasis Elektronik) adalah penyelenggaraan pemerintahan 
-                            yang memanfaatkan teknologi informasi dan komunikasi untuk memberikan layanan kepada 
-                            pengguna SPBE. SPBE bertujuan untuk mewujudkan tata kelola pemerintahan yang bersih, 
-                            efektif, transparan, dan akuntabel serta pelayanan publik yang berkualitas dan terpercaya.</p>
-                        </div>
-                    </details>
+                    <div>
+                        <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                        <input type="text" 
+                               name="nama" 
+                               id="nama" 
+                               required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
 
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Bagaimana cara mengajukan pembuatan aplikasi/sistem informasi?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Untuk mengajukan pembuatan aplikasi atau sistem informasi:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Ajukan surat permohonan resmi ke Kepala Diskominfo</li>
-                                <li>Lampirkan proposal kebutuhan sistem dengan detail fitur yang diinginkan</li>
-                                <li>Tim akan melakukan analisis kebutuhan dan kajian teknis</li>
-                                <li>Setelah disetujui, akan dilakukan proses pengembangan</li>
-                                <li>Sistem akan di-deploy setelah melalui tahap testing</li>
-                            </ul>
-                        </div>
-                    </details>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" 
+                               name="email" 
+                               id="email" 
+                               required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
 
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Bagaimana cara mendapatkan akses email pemerintah?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Untuk mendapatkan email resmi pemerintah Kabupaten Pemalang (@pemalangkab.go.id):</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Pastikan Anda adalah ASN/pegawai di lingkungan Pemkab Pemalang</li>
-                                <li>Ajukan permohonan melalui atasan langsung ke Diskominfo</li>
-                                <li>Isi formulir pendaftaran dengan data lengkap</li>
-                                <li>Email akan dibuat dalam waktu 1-3 hari kerja</li>
-                                <li>Kredensial login akan dikirimkan melalui nomor HP yang terdaftar</li>
-                            </ul>
-                        </div>
-                    </details>
+                    <div>
+                        <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
+                        <input type="tel" 
+                               name="telepon" 
+                               id="telepon"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
 
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apa yang harus dilakukan jika website/aplikasi error?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Jika mengalami kendala teknis pada website atau aplikasi:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Laporkan ke helpdesk Diskominfo melalui email atau telepon</li>
-                                <li>Sertakan screenshot error dan deskripsi masalah</li>
-                                <li>Cantumkan waktu terjadinya error dan langkah yang dilakukan</li>
-                                <li>Tim IT akan merespons dan menindaklanjuti dalam 1x24 jam</li>
-                            </ul>
-                        </div>
-                    </details>
+                    <div>
+                        <label for="subjek" class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
+                        <input type="text" 
+                               name="subjek" 
+                               id="subjek" 
+                               required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
 
-                </div>
-            </div>
+                    <div>
+                        <label for="pesan" class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                        <textarea name="pesan" 
+                                  id="pesan" 
+                                  rows="6" 
+                                  required
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"></textarea>
+                    </div>
 
-            <!-- PPID & INFORMASI PUBLIK -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="bg-primary/5 px-6 py-3 border-b border-gray-200">
-                    <h2 class="text-lg font-bold text-primary">PPID & Informasi Publik</h2>
-                </div>
-                <div class="p-4 space-y-3">
-                    
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apa itu PPID?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>PPID (Pejabat Pengelola Informasi dan Dokumentasi) adalah pejabat yang bertanggung jawab 
-                            dalam pengumpulan, pendokumentasian, penyimpanan, pemeliharaan, penyediaan, distribusi, dan 
-                            pelayanan informasi publik di lingkungan badan publik sesuai UU No. 14 Tahun 2008 tentang 
-                            Keterbukaan Informasi Publik.</p>
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Bagaimana cara mengajukan permohonan informasi publik?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Langkah-langkah mengajukan permohonan informasi publik:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Isi formulir permohonan informasi publik</li>
-                                <li>Ajukan secara langsung ke kantor PPID atau melalui online</li>
-                                <li>Sertakan identitas diri (KTP/dokumen resmi)</li>
-                                <li>Jelaskan informasi yang diminta dengan spesifik</li>
-                                <li>Permohonan akan diproses maksimal 10 hari kerja</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apakah ada biaya untuk mengakses informasi publik?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Akses terhadap informasi publik tidak dipungut biaya. Namun, pemohon dapat dikenakan 
-                            biaya untuk penggandaan/fotokopi dan pengiriman dokumen sesuai tarif yang berlaku. 
-                            Informasi yang tersedia di website dapat diakses secara gratis.</p>
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apa yang harus dilakukan jika permohonan informasi ditolak?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Jika permohonan informasi ditolak, pemohon dapat:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Mengajukan keberatan tertulis kepada Atasan PPID</li>
-                                <li>Keberatan diajukan maksimal 30 hari kerja setelah penolakan</li>
-                                <li>Atasan PPID akan memberikan tanggapan dalam 30 hari kerja</li>
-                                <li>Jika masih tidak puas, dapat mengajukan ke Komisi Informasi</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                </div>
-            </div>
-
-            <!-- PENGADUAN & BANTUAN -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="bg-primary/5 px-6 py-3 border-b border-gray-200">
-                    <h2 class="text-lg font-bold text-primary">Pengaduan & Bantuan</h2>
-                </div>
-                <div class="p-4 space-y-3">
-                    
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Bagaimana cara menyampaikan pengaduan?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Masyarakat dapat menyampaikan pengaduan melalui:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Portal pengaduan online di website resmi</li>
-                                <li>Email: pengaduan@pemalangkab.go.id</li>
-                                <li>Hotline: (0284) 321234</li>
-                                <li>Datang langsung ke kantor Diskominfo</li>
-                                <li>Melalui aplikasi LAPOR! atau SP4N</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Berapa lama proses penanganan pengaduan?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Waktu penanganan pengaduan disesuaikan dengan tingkat kompleksitas:</p>
-                            <ul class="list-disc ml-6 mt-2 space-y-1">
-                                <li>Pengaduan sederhana: 1-3 hari kerja</li>
-                                <li>Pengaduan dengan kompleksitas sedang: 5-7 hari kerja</li>
-                                <li>Pengaduan kompleks: maksimal 14 hari kerja</li>
-                                <li>Pemohon akan mendapat nomor tiket untuk tracking</li>
-                                <li>Update status dapat dipantau secara online</li>
-                            </ul>
-                        </div>
-                    </details>
-
-                    <details class="group bg-gray-50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-4 hover:bg-gray-100 transition cursor-pointer">
-                            <h3 class="font-semibold text-gray-900">Apakah bisa melaporkan konten negatif di media sosial?</h3>
-                            <span class="arrow text-primary text-2xl">▼</span>
-                        </summary>
-                        <div class="px-4 pb-4 text-gray-700 leading-relaxed">
-                            <p>Ya, Anda dapat melaporkan konten negatif, hoax, atau ujaran kebencian terkait 
-                            Kabupaten Pemalang kepada Diskominfo. Tim kami akan melakukan verifikasi dan 
-                            mengambil tindakan sesuai prosedur yang berlaku, termasuk koordinasi dengan 
-                            pihak berwenang jika diperlukan.</p>
-                        </div>
-                    </details>
-
-                </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                        <span>Kirim Pesan</span>
+                    </button>
+                </form>
             </div>
 
         </div>
 
-        <!-- CONTACT SECTION -->
-        <div class="mt-12 bg-gradient-to-br from-primary to-blue-800 rounded-2xl p-8 text-white text-center">
-            <h2 class="text-2xl font-bold mb-3">Masih Ada Pertanyaan?</h2>
-            <p class="mb-6 text-blue-100">
-                Jika pertanyaan Anda belum terjawab, jangan ragu untuk menghubungi kami
-            </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#" class="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
-                    Hubungi Kami
-                </a>
-                <a href="#" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition">
-                    Kirim Email
-                </a>
+        <!-- MAP SECTION -->
+        <div class="mt-12 bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900">Lokasi Kami</h2>
+            </div>
+            <div class="aspect-video bg-gray-200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2879939932644!2d109.37709631477398!3d-6.893906695015374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7024c7e8c7c7c7%3A0x7c7c7c7c7c7c7c7c!2sPemalang%2C%20Jawa%20Tengah!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full h-full">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- FAQ SECTION -->
+        <div class="mt-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-3">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+                <p class="text-gray-600">Temukan jawaban untuk pertanyaan umum atau ajukan pertanyaan baru</p>
+            </div>
+
+            @if(session('success'))
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p class="text-green-700 font-medium">{{ session('success') }}</p>
+                    </div>
+                </div>
+            @endif
+
+            @if($faqs->count() > 0)
+                <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Pertanyaan yang Telah Dijawab</h3>
+                    <div class="space-y-3">
+                        @foreach($faqs as $faq)
+                            <details class="group bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+                                <summary class="cursor-pointer px-6 py-4 font-medium text-gray-900 hover:bg-gray-100 transition flex items-center justify-between">
+                                    <span>{{ $faq->pertanyaan }}</span>
+                                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </summary>
+                                <div class="px-6 py-4 bg-white border-t border-gray-200">
+                                    <p class="text-gray-700 leading-relaxed">{{ $faq->jawaban }}</p>
+                                    <p class="text-xs text-gray-500 mt-3">Dijawab pada: {{ $faq->dijawab_at->format('d M Y') }}</p>
+                                </div>
+                            </details>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            <!-- FAQ SUBMISSION FORM -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">Punya Pertanyaan?</h3>
+                <p class="text-gray-600 mb-6">Ajukan pertanyaan Anda dan tim kami akan menjawabnya secepatnya.</p>
+                
+                <form action="{{ route('faq.submit') }}" method="POST" class="space-y-4">
+                    @csrf
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" 
+                                   name="nama" 
+                                   id="nama" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" 
+                                   name="email" 
+                                   id="email" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="pertanyaan" class="block text-sm font-medium text-gray-700 mb-2">Pertanyaan</label>
+                        <textarea name="pertanyaan" 
+                                  id="pertanyaan" 
+                                  rows="4" 
+                                  required
+                                  maxlength="1000"
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
+                                  placeholder="Tuliskan pertanyaan Anda di sini..."></textarea>
+                        <p class="text-xs text-gray-500 mt-1">Maksimal 1000 karakter</p>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>Kirim Pertanyaan</span>
+                    </button>
+                </form>
             </div>
         </div>
 

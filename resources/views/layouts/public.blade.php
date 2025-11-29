@@ -76,9 +76,10 @@
             <div class="flex gap-6 text-sm overflow-x-auto">
                 <a href="{{ route('home') }}" class="py-3 px-1 border-b-2 {{ Request::is('/') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">Beranda</a>
                 <a href="{{ route('profil') }}" class="py-3 px-1 border-b-2 {{ Request::is('profil') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">Profil</a>
-                <a href="{{ route('faq') }}" class="py-3 px-1 border-b-2 {{ Request::is('faq') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">FAQ</a>
+                <a href="{{ route('berita') }}" class="py-3 px-1 border-b-2 {{ Request::is('berita*') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">Berita</a>
+                <a href="{{ route('layanan') }}" class="py-3 px-1 border-b-2 {{ Request::is('layanan*') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">Layanan Publik</a>
                 <a href="{{ route('sakip') }}" class="py-3 px-1 border-b-2 {{ Request::is('sakip') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">SAKIP</a>
-                <a href="{{ route('layanan') }}" class="py-3 px-1 border-b-2 {{ Request::is('layanan') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">Layanan Publik</a>
+                <a href="{{ route('faq') }}" class="py-3 px-1 border-b-2 {{ Request::is('faq') ? 'border-accent text-primary font-semibold' : 'border-transparent text-gray-600 hover:text-primary hover:border-gray-300' }} transition whitespace-nowrap">FAQ</a>
             </div>
         </div>
     </nav>
